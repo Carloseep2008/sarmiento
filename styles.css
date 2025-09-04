@@ -566,30 +566,31 @@ nav a:hover {
             }
         }
         
+/* Botón hamburguesa */
 #hamburgerMenu {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    z-index: 1001;
-    color: #333;
+  position: absolute; /* lo saca del flujo normal */
+  top: 1rem;          /* separación desde arriba */
+  left: 1rem;         /* separación desde la izquierda */
+  background: none;   /* opcional: sin fondo */
+  border: none;       /* opcional: sin borde */
+  font-size: 2rem;    /* tamaño del ícono */
+  cursor: pointer;
+  z-index: 1000;      /* siempre encima del resto */
 }
 
+/* Asegura que el menú móvil se muestre debajo del header */
 #mobileNav {
-    display: none;
-    position: absolute;
-    top: 3.5rem;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    padding: 1rem;
-    z-index: 1000;
-    flex-direction: column;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 3.5rem; /* justo debajo del header */
+  left: 0;
+  right: 0;
+  background-color: #fff; /* o el color de tu tema */
+  padding: 1rem;
+  z-index: 999;
 }
+
 
 #mobileNav a {
     display: block;
@@ -626,3 +627,4 @@ body.dark-mode #mobileNav a:hover,
 body.dark-mode #mobileNav a:focus {
     background-color: #444;
 }
+
