@@ -575,7 +575,7 @@ nav a:hover {
   border: none;
   font-size: 2rem;
   cursor: pointer;
-  z-index: 1001; /* encima del menú */
+  z-index: 1001;
 }
 
 /* Menú móvil tipo sidebar */
@@ -585,16 +585,16 @@ nav a:hover {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;         /* toda la altura de la pantalla */
-  width: 250px;          /* ancho del sidebar */
-  background-color: #fff; /* fondo */
+  height: 100vh;
+  width: 250px;
+  background-color: #fff;
   padding: 2rem 1rem;
-  transform: translateX(-100%); /* oculto a la izquierda */
+  transform: translateX(-100%); /* Oculto fuera de pantalla */
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
 }
 
-/* Estado visible del menú */
+/* Estado visible */
 #mobileNav.active {
   transform: translateX(0);
 }
@@ -636,5 +636,6 @@ body.dark-mode #mobileNav a:hover,
 body.dark-mode #mobileNav a:focus {
     background-color: #444;
 }
+
 
 
