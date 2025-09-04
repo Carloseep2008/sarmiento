@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Contact Samuel Gallego" />
+    <title>Sarmiento | Contacto</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="projects.html">Proyectos</a>
+            <a href="contact.html">Contactos</a>
+            <a href="skills.html">Habilidades</a>
+        </nav>
+        <h1>Contacto</h1>
+    </header>
+
+    <p>
+    <main class="container">
+        <section class="contact-section">
+            <div class="contact-methods">
+                <div class="contact-info">
+                    <h2>Contáctame</h2>
+                    <div class="contact-card">
+                        
+                        <h3>Email</h3>
+                        <a href="mailto:sarmientosantiago313@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            sarmientosantiago313@gmail.com
+                        </a>
+                        <h3>Whatsapp</h3>
+                        <a href="https://api.whatsapp.com/send/?phone=573105934326&text&type=phone_number&app_absent=0" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            3105934326
+                        </a>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Professional Links</h3>
+                        <div class="social-grid">
+                            <a class="contact-link disabled">
+                                <i class="fab fa-linkedin"></i>
+                                LinkedIn (Próximamente)­­­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­       
+                            </a>
+                            <a class="contact-link disabled">
+                                <i class="fab fa-github"></i>
+                                GitHub (Próximamente)­­
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm" novalidate>
+                    <h2>Envíame un mensaje</h2>
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+
+                    <label for="message">Contacto</label>
+                    <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+                    <button type="submit">Enviar</button>
+                    <p id="formMessage" role="alert" style="color: red; display: none; margin-top: 0.5rem;"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Sarmiento. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            darkModeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️';
+        }
+
+        const sections = document.querySelectorAll('section');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            section.classList.add('hidden');
+            observer.observe(section);
+        });
+
+        const form = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const message = form.message.value.trim();
+
+            if (!name || !email || !message) {
+                formMessage.style.color = 'red';
+                formMessage.textContent = 'Por favor, completa todos los campos.';
+                formMessage.style.display = 'block';
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                formMessage.style.color = 'red';
+                formMessage.textContent = 'Por favor, ingresa un email válido.';
+                formMessage.style.display = 'block';
+                return;
+            }
+
+            formMessage.style.color = 'green';
+            formMessage.textContent = '¡Mensaje enviado con éxito! Gracias por contactarme.';
+            formMessage.style.display = 'block';
+
+            form.reset();
+        });
+    </script>
+</body>
+</html>
