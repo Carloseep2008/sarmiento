@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Samuel Gallego's Projects">
+    <title>Sarmiento | Proyectos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="projects.html">Proyectos</a>
+            <a href="contact.html">Contáctame</a>
+            <a href="Skills.html">Habilidades</a>
+        </nav>
+        <h1>Mis Proyectos</h1>
+    </header>
+    <p>
+    <main class="container">
+        <section class="projects">
+            <div class="project-card">
+                <center><h3>Proyectos de vida</h3></center>
+                <p class="project-description">
+                    <div class="languages" role="list">
+                <div class="language" role="listitem">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ruby/ruby-plain.svg" 
+                         alt="HTML" loading="lazy">
+                    <p><h4>Convertirme en un gran inversionista</h4>
+                        <p>Alcanzando una sólida estabilidad económica que me permita no solo cumplir mis metas personales, sino también apoyar y brindar bienestar a mis seres queridos.
+                    </p>
+                </div>
+                <div class="language" role="listitem">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/inkscape/inkscape-plain.svg" 
+                         alt="HTML" loading="lazy">
+                    <p><h4>Dejar una huella en el mundo</h4>
+                        <p>Ya sea a través de una marca reconocida, un proyecto innovador o un descubrimiento que contribuya al bienestar de la humanidad. Aspiro a crear algo que trascienda y sea recordado.
+                    </p>
+                </div>
+                <div class="language" role="listitem">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firefox/firefox-original.svg" 
+                         alt="HTML" loading="lazy">
+                    <p><h4>Viajar y conocer el mundo</h4>
+                        <p>xplorando nuevos lugares, culturas y experiencias que me inspiren. Deseo vivir la vida plenamente desde temprana edad, disfrutando de mi libertad y de todo lo que la vida tiene para ofrecer.
+                    </p>
+                </div>
+                    </div>
+                </p>
+            </div>
+        </section>
+    </main> 
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Sarmiento. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            darkModeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+        
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️';
+        }
+
+        const sections = document.querySelectorAll('section');
+        
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            section.classList.add('hidden');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarmiento | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="projects.html">Proyectos</a>
+            <a href="contact.html">Contáctame</a>
+            <a href="Skills.html">Habilidades</a>
+        </nav>
+        <h1>Santiago Sarmiento</h1>
+        <p class="subtitle">Estudiante de Contaduría Pública</p>
+    </header>
+
+            <h2>Sobre mí</h2>
+
+    <main class="container">
+        <section id="about" class="description">
+            <p>Mi nombre es Santiago Sarmiento, tengo 17 años y vivo en la ciudad de Cali, Colombia. Me considero una persona responsable, dedicada y amable, con una gran motivación por aprender y crecer constantemente.            
+            <p>Disfruto ser útil a los demás y encontrar satisfacción en aquello que me apasiona. Actualmente soy estudiante universitario de Contaduría Pública, una carrera que me inspira y que he aprendido a valorar profundamente, pues en ella encuentro la oportunidad de desarrollar disciplina, análisis y compromiso. Mi meta es convertirme en un contador íntegro y competente, capaz de generar confianza y aportar valor en cada proyecto.
+            <p>Me veo como un ser humano en constante construcción, alguien que aprende de las experiencias y que evoluciona en su búsqueda por descubrir quién es y hasta dónde puede llegar.</p>
+        </section>
+
+        <section id="skills" aria-label="Programming Languages">
+            <h2>Lenguajes</h2>
+            <div class="languages" role="list">
+                <div class="language" role="listitem">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" 
+                         alt="HTML" loading="lazy">
+                    <p>HTML</p>
+                </div>
+                <div class="language" role="listitem">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" 
+                         alt="CSS" loading="lazy">
+                    <p>CSS</p>
+                </div>
+                <div class="language" role="listitem">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" 
+                         alt="Python" loading="lazy">
+                    <p>JavaScript</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Sarmiento. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        });
+
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️';
+        }
+    </script>
+</body>
+</html>
