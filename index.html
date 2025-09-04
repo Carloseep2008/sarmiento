@@ -9,25 +9,18 @@
 </head>
 <body>
     <header>
-        <!-- Botón hamburguesa para móviles -->
+        
 <button id="hamburgerMenu" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileNav">
-    &#9776; <!-- símbolo hamburguesa -->
+    &#9776;
 </button>
 
-<!-- Menú móvil desplegable -->
+
 <nav id="mobileNav" aria-label="Menú de navegación móvil">
     <a href="index.html" tabindex="-1">Inicio</a>
     <a href="projects.html" tabindex="-1">Proyectos</a>
     <a href="contact.html" tabindex="-1">Contáctame</a>
     <a href="Skills.html" tabindex="-1">Habilidades</a>
 </nav>
-        <!-- Navegación tradicional para escritorio -->
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="projects.html">Proyectos</a>
-            <a href="contact.html">Contáctame</a>
-            <a href="Skills.html">Habilidades</a>
-        </nav>
 
         <h1>Santiago Sarmiento</h1>
         <p class="subtitle">Estudiante de Contaduría Pública</p>
@@ -101,10 +94,8 @@ hamburgerMenu.addEventListener('click', () => {
     }
 });
 
-// Inicialmente ocultar enlaces
 mobileNav.querySelectorAll('a').forEach(link => link.tabIndex = -1);
 
-// Cerrar si se hace clic fuera del menú
 document.addEventListener('click', (event) => {
     if (!mobileNav.contains(event.target) && event.target !== hamburgerMenu) {
         mobileNav.classList.remove('active');
@@ -115,4 +106,5 @@ document.addEventListener('click', (event) => {
     </script>
 </body>
 </html>
+
 
